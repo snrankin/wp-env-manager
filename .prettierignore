@@ -1,0 +1,11 @@
+**/*.min.*
+**/*.map
+
+*.md
+*.markdown
+
+**/_variables.scss
+
+package.json
+
+**/*.ejs

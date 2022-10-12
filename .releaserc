@@ -1,0 +1,85 @@
+{
+	"plugins": [
+		[
+			"@semantic-release/commit-analyzer",
+			{
+				"preset": "conventionalcommits",
+				"releaseRules": [
+					{
+						"type": "docs",
+						"scope": "*README*",
+						"release": "patch"
+					},
+					{
+						"type": "build",
+						"scope": "deps",
+						"release": "patch"
+					},
+					{
+						"type": "docs",
+						"scope": "*readme*",
+						"release": "patch"
+					},
+					{
+						"type": "refactor",
+						"release": "patch"
+					},
+					{
+						"scope": "no-release",
+						"release": false
+					}
+				]
+			}
+		],
+		[
+			"@semantic-release/release-notes-generator",
+			{
+				"preset": "conventionalcommits",
+				"presetConfig": {
+					"types": [
+						{
+							"type": "feat",
+							"section": "Features"
+						},
+						{
+							"type": "fix",
+							"section": "Bug Fixes"
+						},
+						{
+							"type": "build",
+							"section": "Dependencies and Other Build Updates",
+							"hidden": false
+						}
+					]
+				}
+			}
+		],
+		[
+			"@semantic-release/changelog",
+			{
+				"changelogTitle": "# Changelog\n\nAll notable changes to this project will be documented in this file. See\n[Conventional Commits](https://conventionalcommits.org) for commit guidelines."
+			}
+		],
+		[
+			"@semantic-release/npm",
+			{
+				"tarballDir": "pack"
+			}
+		],
+		[
+			"@semantic-release/github",
+			{
+				"assets": "pack/*.tgz"
+			}
+		],
+		[
+			"@semantic-release/git",
+			{
+				"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+			}
+		]
+	],
+	"branches": [
+		"main"
+	]
+}

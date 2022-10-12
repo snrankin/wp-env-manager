@@ -1,0 +1,14 @@
+dist/
+node_modules/
+
+vendor/
+
+**/*.min.*
+**/*.map
+**/*.css*
+**/_variables.scss
+**/_root.scss
+
+*.ejs
+
+src/css/bootstrap/_navbar.scss
